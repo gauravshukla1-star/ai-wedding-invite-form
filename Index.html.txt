@@ -56,7 +56,7 @@ document.getElementById("weddingForm").addEventListener("submit", async function
     const formData = new FormData(form);
 
     // Replace this URL with your Make.com webhook URL
-    const webhookURL = "YOUR_WEBHOOK_URL_HERE";
+    const webhookURL = "https://hook.eu2.make.com/8wdvm4uc0a55044gq7hjnazqgacial89";
 
     const response = await fetch(webhookURL, {
         method: "POST",
@@ -73,3 +73,4 @@ document.getElementById("weddingForm").addEventListener("submit", async function
 
 </body>
 </html>
+
