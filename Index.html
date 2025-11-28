@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Wedding Card Generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="font-family: Arial; max-width: 600px; margin: auto; padding: 20px;">
+
+<h2>AI Wedding Invitation - Submit Details</hh2>
+
+<form id="weddingForm" enctype="multipart/form-data">
+  
+  <label>Groom Name:</label><br>
+  <input type="text" name="groom_name" required><br><br>
+
+  <label>Bride Name:</label><br>
+  <input type="text" name="bride_name" required><br><br>
+
+  <label>Wedding Date:</label><br>
+  <input type="date" name="wedding_date" required><br><br>
+
+  <label>Venue:</label><br>
+  <input type="text" name="venue" required><br><br>
+
+  <label>Language:</label><br>
+  <select name="language" required>
+    <option value="English">English</option>
+    <option value="Hindi">Hindi</option>
+  </select><br><br>
+
+  <label>Style:</label><br>
+  <select name="style" required>
+    <option value="Traditional">Traditional</option>
+    <option value="Modern">Modern</option>
+    <option value="Minimal">Minimal</option>
+  </select><br><br>
+
+  <label>Groom Photo:</label><br>
+  <input type="file" name="groom_photo" accept="image/*" required><br><br>
+
+  <label>Bride Photo:</label><br>
+  <input type="file" name="bride_photo" accept="image/*" required><br><br>
+
+  <label>Recipient Email:</label><br>
+  <input type="email" name="email" required><br><br>
+
+  <button type="submit">Generate Invitations</button>
+</form>
+
+<script>
+document.getElementById("weddingForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    
+    const form = document.getElementById("weddingForm");
+    const formData = new FormData(form);
+
+    // Replace this URL with your Make.com webhook URL
+    const webhookURL = "YOUR_WEBHOOK_URL_HERE";
+
+    const response = await fetch(webhookURL, {
+        method: "POST",
+        body: formData
+    });
+
+    if(response.ok){
+        alert("Your details have been submitted!");
+    } else {
+        alert("Submission failed.");
+    }
+});
+</script>
+
+</body>
+</html>
